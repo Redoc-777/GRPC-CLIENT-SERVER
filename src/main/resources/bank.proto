@@ -1,0 +1,32 @@
+syntax ="proto3";
+option java_package="org.example.stubs" ;
+
+service BankService {
+
+  rpc convert (ConvertCurrencyRequest) returns (ConvertCurrencyResponse);
+  rpc getStream (ConvertCurrencyRequest) returns (stream ConvertCurrencyResponse);
+  rpc performStream (stream ConvertCurrencyRequest) returns (stream ConvertCurrencyResponse);
+  rpc fullCurrencyStream (stream ConvertCurrencyRequest) returns (stream ConvertCurrencyResponse ) ;
+
+
+
+
+}
+
+message ConvertCurrencyRequest {
+    string currencyForm=1;
+    string currencyTo=2;
+    double ammount= 3;
+
+
+}
+
+
+message ConvertCurrencyResponse {
+  string currencyForm=1;
+  string currencyTo=2;
+  string ammount= 3;
+  double result=4 ;
+
+
+}
